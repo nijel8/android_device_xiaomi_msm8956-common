@@ -57,6 +57,9 @@ void check_device()
 
 void vendor_load_properties()
 {
+    /** to be removed **/
+    property_set("sys.init_log_level", "7");
+    
     check_device();
 
     property_set("dalvik.vm.heapstartsize", heapstartsize);
