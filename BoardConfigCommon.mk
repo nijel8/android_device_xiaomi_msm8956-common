@@ -104,7 +104,7 @@ BOARD_HARDWARE_CLASS += \
 
 # CNE
 BOARD_USES_QCNE := true
-TARGET_LDPRELOAD := libNimsWrap.so
+#TARGET_LDPRELOAD := libNimsWrap.so
 
 # Display
 BOARD_USES_ADRENO := true
