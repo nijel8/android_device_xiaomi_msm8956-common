@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -104,7 +105,6 @@ BOARD_HARDWARE_CLASS += \
 
 # CNE
 BOARD_USES_QCNE := true
-#TARGET_LDPRELOAD := libNimsWrap.so
 
 # Display
 BOARD_USES_ADRENO := true
@@ -138,6 +138,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
 
 # FM
+BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # GPS
