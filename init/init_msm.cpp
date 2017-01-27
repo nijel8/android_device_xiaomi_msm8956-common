@@ -39,13 +39,22 @@ void check_device()
     struct sysinfo sys;
 
     sysinfo(&sys);
-
-    if (sys.totalram > 2048ull * 1024 * 1024) {
+    
+    if (sys.totalram > 3072ull * 1024 * 1024)
+    {
+        // from - phone-xxxhdpi-4096-dalvik-heap.mk
+        heapstartsize = "8m";
+        heapgrowthlimit = "384m";
+        heapsize = "1024m";
+        heapminfree = "4m";
+        return;
+    } else if (sys.totalram > 2048ull * 1024 * 1024) {
         // from - phone-xxhdpi-3072-dalvik-heap.mk
         heapstartsize = "8m";
         heapgrowthlimit = "288m";
         heapsize = "768m";
         heapminfree = "512k";
+        return;
     } else {
         // from - phone-xxhdpi-2048-dalvik-heap.mk
         heapstartsize = "16m";
@@ -58,7 +67,8 @@ void check_device()
 void vendor_load_properties()
 {
     /** to be removed **/
-    property_set("sys.init_log_level", "7");
+    //property_set("sys.init_log_level", "7");
+    /*******************/
     
     check_device();
 
