@@ -444,7 +444,7 @@ set_light_buttons(struct light_device_t* dev,
     brightness /= 6.375;
     
     pthread_mutex_lock(&g_lock);
-    err = write_int(BUTTON_FILE, brightness);
+    err = write_int(BUTTON_FILE, round(brightness));
     pthread_mutex_unlock(&g_lock);
     return err;
 }
