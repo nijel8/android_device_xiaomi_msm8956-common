@@ -18,7 +18,7 @@
 set -e
 
 # Required!
-DEVICE=hydrogen
+DEVICE=$1
 VENDOR=xiaomi
 
 # Load extractutils and do some sanity checks

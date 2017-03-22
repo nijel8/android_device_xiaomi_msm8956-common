@@ -14,10 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# Run in terminal:
+# cd [ANDROID_ROOT_PATH]/device/xiaomi/msm8956-common && ./extract-files.sh  [DEVICE] [PATH_TO_EXPANDED_ROM]
+# 
 
 set -e
 
-DEVICE=hydrogen
+DEVICE=$1
 VENDOR=xiaomi
 
 # Load extractutils and do some sanity checks
@@ -33,15 +36,15 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
-if [ $# -eq 0 ]; then
+if [ $# -eq 1 ]; then
   SRC=adb
 else
-  if [ $# -eq 1 ]; then
-    SRC=$1
+  if [ $# -eq 2 ]; then
+    SRC=$2
   else
     echo "$0: bad number of arguments"
     echo ""
-    echo "usage: $0 [PATH_TO_EXPANDED_ROM]"
+    echo "usage: $0 [DEVICE] [PATH_TO_EXPANDED_ROM]"
     echo ""
     echo "If PATH_TO_EXPANDED_ROM is not specified, blobs will be extracted from"
     echo "the device using adb pull."
@@ -54,4 +57,4 @@ setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
-"$MY_DIR"/setup-makefiles.sh
+"$MY_DIR"/setup-makefiles.sh $DEVICE
