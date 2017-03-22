@@ -1,2 +1,5 @@
 # oem sno property
 type oem_sno_prop, property_type;
+
+# timekeep
+type timekeep_prop, property_type;
