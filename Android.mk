@@ -26,7 +26,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter hydrogen kenzo helium,$(TARGET_DEVICE)),)
+ifneq ($(filter hydrogen helium,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
@@ -74,5 +74,9 @@ $(WCNSS_INI_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /data/misc/wifi/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK)
+
+# Create a link to get rid of "org.apache.http.legacy.jar not found" logcat error
+$(shell ln -sf /system/framework/org.apache.http.legacy.boot.jar \
+		$(TARGET_OUT)/framework/org.apache.http.legacy.jar)
 
 endif
