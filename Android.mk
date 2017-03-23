@@ -75,8 +75,14 @@ $(WCNSS_INI_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK)
 
-# Create a link to get rid of "org.apache.http.legacy.jar not found" logcat error
-$(shell ln -sf /system/framework/org.apache.http.legacy.boot.jar \
-		$(TARGET_OUT)/framework/org.apache.http.legacy.jar)
+# Create symlink to get rid of "org.apache.http.legacy.jar not found" logcat error
+ORG_APACHE_HTTP_LEGACY_SYMLINK := $(TARGET_OUT)/framework/org.apache.http.legacy.jar
+$(ORG_APACHE_HTTP_LEGACY_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "Apache HTTP boot.jar link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /system/framework/org.apache.http.legacy.boot.jar $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(ORG_APACHE_HTTP_LEGACY_SYMLINK)
 
 endif
