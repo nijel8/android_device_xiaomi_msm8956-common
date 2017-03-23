@@ -22,9 +22,3 @@
 
 # mmbn-daemon
 /system/bin/mmbn-daemon                                 u:object_r:mmbn-daemon_exec:s0
-
-# RTC 
-/sys/devices/soc.0/qpnp-rtc-[^/]+/rtc/rtc0(/.*)?        u:object_r:rtc_sysfs:s0
-
-# timekeep
-/system/bin/timekeep                                    u:object_r:timekeep_exec:s0

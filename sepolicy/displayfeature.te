@@ -26,4 +26,3 @@ allow displayfeature userinit_prop:file { getattr open };
 allow displayfeature device_logging_prop:file { getattr open };
 allow displayfeature displayfeature_exec:file { entrypoint getattr read };
 allow displayfeature logpersistd_logging_prop:file { getattr open };
-allow displayfeature timekeep_prop:file { getattr open };
