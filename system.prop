@@ -158,6 +158,7 @@ persist.hwc.enable_vds=1
 
 #force HAL1 for below packages
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk,com.intsig.camscanner
+
 # USB charging notification: 0-disable, 1-enable
 persist.charging.notify=0
 
