@@ -111,6 +111,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
 
+# CPU configuration
+PRODUCT_PACKAGES += \
+    cpu_config
+
 # DataServices
 PRODUCT_PACKAGES += \
     librmnetctl
@@ -228,9 +232,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8952
 
-# qti-telephony
+# QTI telephony
 PRODUCT_PACKAGES += \
     qti-telephony-common
+
+#PRODUCT_BOOT_JARS += \
+#    qti-telephony-common
 
 # Qualcomm dependencies
 PRODUCT_PACKAGES += \
