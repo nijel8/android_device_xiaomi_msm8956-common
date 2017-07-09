@@ -73,7 +73,7 @@ void vendor_load_properties()
     /** to be removed **/
     //property_set("sys.init_log_level", "7");
     /*******************/
-    
+
     check_device();
 
     property_set("dalvik.vm.heapstartsize", heapstartsize);
@@ -82,4 +82,10 @@ void vendor_load_properties()
     property_set("dalvik.vm.heaptargetutilization", "0.75");
     property_set("dalvik.vm.heapminfree", heapminfree);
     property_set("dalvik.vm.heapmaxfree", heapmaxfree);
+
+    std::string selp = property_get("persist.sys.selinux.enforcing");
+    if (selp == "")
+    {
+        property_set("persist.sys.selinux.enforcing", "1");
+    }
 }

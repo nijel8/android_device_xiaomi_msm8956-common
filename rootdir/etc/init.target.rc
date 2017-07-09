@@ -56,6 +56,10 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop displayfeature
 
+on property:persist.sys.selinux.enforcing=1
+    write /dev/kmsg "SELinux enforcing by persist user property -> "
+    exec - root root -- /system/bin/setenforce 1
+
 on post-fs-data
 # Fix for Telephony access
     chmod 0644 /proc/cmdline
