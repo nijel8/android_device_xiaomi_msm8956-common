@@ -31,6 +31,8 @@ voice.voip.conc.disabled=false
 use.qti.sw.alac.decoder=true
 use.qti.sw.ape.decoder=true
 
+audio.safemedia.bypass=true
+
 # Bluetooth
 bluetooth.hfp.client=1
 qcom.bluetooth.soc=smd
