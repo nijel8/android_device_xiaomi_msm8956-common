@@ -176,3 +176,6 @@ persist.charging.notify=1
 
 # Wireless and USB ADB debug notification: 0-disable, 1-enable
 persist.adb.notify=0
+
+# SIM 2 default ringtone
+ro.config.ringtone_2=Orion.ogg
