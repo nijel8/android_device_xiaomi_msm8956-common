@@ -178,4 +178,4 @@ persist.charging.notify=1
 persist.adb.notify=0
 
 # SIM 2 default ringtone
-ro.config.ringtone_2=Orion.ogg
+ro.config.ringtone_2=Ring_Digital_02.ogg
