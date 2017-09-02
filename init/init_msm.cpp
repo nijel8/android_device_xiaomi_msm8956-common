@@ -86,6 +86,6 @@ void vendor_load_properties()
     std::string selp = property_get("persist.sys.selinux.enforcing");
     if (selp == "")
     {
-        property_set("persist.sys.selinux.enforcing", "1");
+        property_set("persist.sys.selinux.enforcing", "0");
     }
 }

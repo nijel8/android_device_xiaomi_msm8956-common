@@ -385,7 +385,7 @@ etc/permissions/com.qualcomm.location.vzw_library.xml
 framework/cneapiclient.jar
 framework/com.quicinc.cne.jar
 framework/ConnectivityExt.jar
--priv-app/CNEService/CNEService.apk
+#-priv-app/CNEService/CNEService.apk
 framework/com.qualcomm.location.vzw_library.jar
 vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
