@@ -131,6 +131,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
 
+# Hax CNE libs to load M libprotobuf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/bin/cnd:system/bin/cnd \
+    $(LOCAL_PATH)/proprietary/vendor/lib64/libcne.so:system/vendor/lib64/libcne.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib64/libcneapiclient.so:system/vendor/lib64/libcneapiclient.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib64/libprotobuf-cpp-shit.so:system/vendor/lib64/libprotobuf-cpp-shit.so
+
 # Consumerir
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl

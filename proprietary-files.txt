@@ -360,7 +360,7 @@ vendor/lib/libmmcamera_s5k5e8_qtec.so
 bin/hvdcp_opti
 
 # CNE
-bin/cnd
+#bin/cnd
 etc/cne/andsfCne.xml
 etc/cne/SwimConfig.xml
 etc/cne/wqeclient/ATT/ATT_profile1.xml
@@ -387,8 +387,8 @@ framework/com.quicinc.cne.jar
 framework/ConnectivityExt.jar
 #-priv-app/CNEService/CNEService.apk
 framework/com.qualcomm.location.vzw_library.jar
-vendor/lib64/libcne.so
-vendor/lib64/libcneapiclient.so
+#vendor/lib64/libcne.so
+#vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneqmiutils.so
 vendor/lib64/libvendorconn.so
 vendor/lib64/libwms.so
