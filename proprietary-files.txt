@@ -782,7 +782,7 @@ lib/libsensor_cal.so
 lib/libsensor_calJNI.so
 vendor/lib64/libsensor_test.so
 vendor/lib/libsensor_test.so
-etc/sensors/hals.conf
+etc/sensors/hals.conf:vendor/etc/sensors/hals.conf
 etc/sensors/sensor_def_qcomdev.conf
 vendor/lib64/hw/activity_recognition.msm8952.so
 vendor/lib64/libsensor1.so
