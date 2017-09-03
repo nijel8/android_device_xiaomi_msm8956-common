@@ -355,12 +355,12 @@
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
     
-    <!-- Button Illumination -->
-    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
+    <!-- Button Illumination
+    <bool name="config_deviceHasVariableButtonBrightness">true</bool> -->
     
     <!-- Timeout in MS for how long you have to long-press the back key to
-         kill the foreground app. -->
-    <integer name="config_backKillTimeout">1000</integer>
+         kill the foreground app.
+    <integer name="config_backKillTimeout">1000</integer> -->
 
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
@@ -376,6 +376,6 @@
     -->
     <bool name="config_enableWifiDisplay">true</bool>
   
-    <!-- Whether notify fingerprint client of successful cancelled authentication -->
-    <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>
+    <!-- Whether notify fingerprint client of successful cancelled authentication
+    <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool> -->
 </resources>
