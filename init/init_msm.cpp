@@ -45,7 +45,7 @@ void check_device()
     struct sysinfo sys;
 
     sysinfo(&sys);
-    
+
     if (sys.totalram > 3072ull * 1024 * 1024)
     {
         // from - phone-xxhdpi-4096-dalvik-heap.mk
@@ -75,10 +75,6 @@ void check_device()
 
 void vendor_load_properties()
 {
-    /** to be removed **/
-    //property_set("sys.init_log_level", "7");
-    /*******************/
-
     check_device();
 
     SetProperty("dalvik.vm.heapstartsize", heapstartsize);
