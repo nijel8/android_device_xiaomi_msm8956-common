@@ -182,6 +182,3 @@ ro.config.ringtone_2=Ring_Digital_02.ogg
 
 # OTA check url
 cm.updater.uri=https://androidfilehost.com/api/?action=folder&flid=176641
-
-# Something I need
-xposed.ignore.packages=com.teslacoilsw.launcher
