@@ -88,4 +88,10 @@ void vendor_load_properties()
     {
         property_set("persist.sys.selinux.enforcing", "1");
     }
+
+    selp = property_get("persist.sys.cpu.core_ctl");
+    if (selp == "")
+    {
+        property_set("persist.sys.cpu.core_ctl", "0");
+    }
 }
