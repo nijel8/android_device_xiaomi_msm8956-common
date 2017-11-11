@@ -179,6 +179,3 @@ persist.adb.notify=0
 
 # SIM 2 default ringtone
 ro.config.ringtone_2=Ring_Digital_02.ogg
-
-# OTA check url
-cm.updater.uri=https://androidfilehost.com/api/?action=folder&flid=176641
