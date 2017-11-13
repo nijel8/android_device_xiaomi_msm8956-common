@@ -1,2 +1,10 @@
 allow platform_app fuseblk:dir rw_dir_perms;
 allow platform_app fuseblk:file create_file_perms;
+
+# FMRadio
+#allow platform_app fm_radio_device:chr_file { ioctl open read };
+#allow platform_app property_socket:sock_file write;
+#allow platform_app init:unix_stream_socket connectto;
+#allow platform_app fm_prop:property_service set;
+
+#set_prop(platform_app, fm_prop)
