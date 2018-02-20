@@ -63,12 +63,6 @@ persist.data.iwlan.enable=true
 # Dex2oat threads for faster app installation
 ro.sys.fw.dex2oat_thread_count=4
 
-# Display
-ro.qcom.ad=1
-ro.qcom.ad.calib.data=/system/etc/calib.cfg
-ro.qcom.ad.sensortype=2
-ro.qualcomm.cabl=0
-
 # Display feature support
 # bit0-ColorPrefer bit1-EyeCare bit2-AD bit3-CE bit4-CABC bit5-SRGB
 ro.sys.display.support=63
