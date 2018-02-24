@@ -30,6 +30,18 @@
 on init
     export LD_SHIM_LIBS /system/vendor/lib64/lib-imsvt.so|libshims_ims.so
 
+    # Kcal
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_hue
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_sat
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_val
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_cont
+
+on property:sys.boot_completed=1
+    # Sound control
+    chown system system /sys/kernel/sound_control/headphone_gain
+    chown system system /sys/kernel/sound_control/speaker_gain
+    chown system system /sys/kernel/sound_control/mic_gain
+    restorecon_recursive /sys/kernel/sound_control
 
 service mmbn-daemon /system/bin/mmbn-daemon
     class main

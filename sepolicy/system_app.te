@@ -1,0 +1,2 @@
+# Kcal and Sound control settings
+allow system_app fuckse_sysfs:file rw_file_perms;

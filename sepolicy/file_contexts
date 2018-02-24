@@ -19,3 +19,14 @@
 
 # mmbn-daemon
 /system/bin/mmbn-daemon                                 u:object_r:mmbn-daemon_exec:s0
+
+# Kcal
+/sys/devices/platform/kcal_ctrl.0/kcal_hue              u:object_r:fuckse_sysfs:s0
+/sys/devices/platform/kcal_ctrl.0/kcal_sat              u:object_r:fuckse_sysfs:s0
+/sys/devices/platform/kcal_ctrl.0/kcal_val              u:object_r:fuckse_sysfs:s0
+/sys/devices/platform/kcal_ctrl.0/kcal_cont             u:object_r:fuckse_sysfs:s0
+
+# Sound control
+/sys/kernel/sound_control/headphone_gain                u:object_r:fuckse_sysfs:s0
+/sys/kernel/sound_control/speaker_gain                  u:object_r:fuckse_sysfs:s0
+/sys/kernel/sound_control/mic_gain                      u:object_r:fuckse_sysfs:s0
