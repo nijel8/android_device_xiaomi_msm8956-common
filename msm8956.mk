@@ -295,6 +295,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
+# SU
+WITH_SU := true
+
 # USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
