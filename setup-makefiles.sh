@@ -59,3 +59,9 @@ if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
     # We are done!
     write_footers
 fi
+
+# While nothing really changes (because TARGET_COPY_OUT_VENDOR
+# defaults to system/vendor), this change leaves it ready in case of
+# building a dedicated vendor image.
+sed -i "s/system\/vendor/\$(TARGET_COPY_OUT_VENDOR)/" "$(realpath "$LINEAGE_ROOT")/vendor/$VENDOR/$DEVICE/$DEVICE-vendor.mk"
+sed -i "s/system\/vendor/\$(TARGET_COPY_OUT_VENDOR)/" "$(realpath "$LINEAGE_ROOT")/vendor/$VENDOR/$DEVICE_COMMON/$DEVICE_COMMON-vendor.mk"
