@@ -9,3 +9,5 @@ allow fingerprintd storage_file:lnk_file read;
 allow fingerprintd mnt_user_file:dir search;
 allow fingerprintd mnt_user_file:lnk_file read;
 allow fingerprintd fuse:dir search;
+allow fingerprintd fpc_stat_data_file:file rw_file_perms;
+allow fingerprintd fpc_stat_data_file:dir search;
