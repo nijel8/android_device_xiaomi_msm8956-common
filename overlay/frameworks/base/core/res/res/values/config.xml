@@ -381,6 +381,8 @@
          Otherwise, the buttons will light up whenever the user interacts with the device 
     <bool name="config_buttonLightOnKeypressOnly">true</bool>-->
 
+    <!-- <bool name="config_deviceHasVariableButtonBrightness">true</bool> -->
+
     <!-- If true, enable the advance anti-falsing classifier on the lockscreen. On some devices it
          does not work well, particularly with noisy touchscreens. Note that disabling it may
          increase the rate of unintentional unlocks. 
@@ -396,4 +398,7 @@
     <!-- Max number of advertisers supported by bluetooth controller. 0 if the
          device does not support multiple advertisement-->
     <integer translatable="false" name="config_bluetooth_max_advertisers">4</integer>
+
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
 </resources>
