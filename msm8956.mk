@@ -317,6 +317,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
 
+# Shims
+PRODUCT_PACKAGES += \
+    libshims_ims \
+    libshims_get_process_name \
+    libshims_rild_socket
+
 # SU
 WITH_SU := true
 

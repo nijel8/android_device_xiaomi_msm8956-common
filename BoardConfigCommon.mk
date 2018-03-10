@@ -220,6 +220,12 @@ TARGET_RIL_VARIANT := caf
 #include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /vendor/lib64/lib-imsvt.so|/vendor/lib64/libshims_ims.so \
+    /vendor/lib64/libizat_core.so|/vendor/lib64/libshims_get_process_name.so \
+    /vendor/lib64/libril-qc-qmi-1.so|/vendor/lib64/libshims_rild_socket.so
+
 # Wifi
 WPA_SUPPLICANT_VERSION      := VER_0_8_X
 BOARD_HAS_QCOM_WLAN         := true
