@@ -54,6 +54,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8956
+TARGET_KERNEL_CONFIG := lineageos_hydrogen_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # ANT+
@@ -107,6 +108,7 @@ TARGET_FLASHLIGHT_CONTROL_VALUE := 100
   
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
+WITH_LINEAGE_CHARGER := false
 
 # CNE
 BOARD_USES_QCNE := true
@@ -143,6 +145,8 @@ TARGET_HW_DISK_ENCRYPTION := true
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 26705099776 # 26705116160 - 16384
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
@@ -202,6 +206,7 @@ TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
 TARGET_USE_SDCLANG := true
+BOARD_USES_CYANOGEN_HARDWARE := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.qcom
@@ -225,6 +230,9 @@ TARGET_LD_SHIM_LIBS := \
     /vendor/lib64/lib-imsvt.so|/vendor/lib64/libshims_ims.so \
     /vendor/lib64/libizat_core.so|/vendor/lib64/libshims_get_process_name.so \
     /vendor/lib64/libril-qc-qmi-1.so|/vendor/lib64/libshims_rild_socket.so
+
+# Tap-to-Wake
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # Wifi
 WPA_SUPPLICANT_VERSION      := VER_0_8_X
