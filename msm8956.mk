@@ -328,6 +328,11 @@ PRODUCT_PACKAGES += \
 # SU
 WITH_SU := true
 
+# Thermal
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine-8956.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8956.conf \
+    $(LOCAL_PATH)/configs/thermal-engine-8976.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8976.conf
+
 # USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
