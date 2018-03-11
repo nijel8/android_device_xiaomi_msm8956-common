@@ -19,3 +19,6 @@
 /dev/socket/fpce                                        u:object_r:fpc_socket:s0
 /sys/devices/soc.0/fpc_fpc1020\.[0-9]+/irq              u:object_r:fpc_sysfs:s0
 /sys/devices/soc.0/fpc_fpc1020\.[0-9]+/enable_wakeup    u:object_r:fpc_sysfs:s0
+
+# HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service.xiaomi_8952       u:object_r:hal_ir_default_exec:s0
