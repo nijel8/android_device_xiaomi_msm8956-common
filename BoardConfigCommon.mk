@@ -221,6 +221,7 @@ USE_OPENGL_RENDERER := true
 # RIL
 PROTOBUF_SUPPORTED := true
 TARGET_RIL_VARIANT := caf
+BOARD_RIL_CLASS := ../../../$(VENDOR_PATH)/ril
 
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
