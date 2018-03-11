@@ -27,6 +27,28 @@
 #
 #
 
+on init
+    # Kcal
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_hue
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_sat
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_val
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_cont
+
+on post-fs-data
+    # Telephony kernel cmdline access
+    chmod 0644 /proc/cmdline
+
+on property:sys.boot_completed=1
+    # Sound control
+    chown system system /sys/kernel/sound_control/headphone_gain
+    chown system system /sys/kernel/sound_control/speaker_gain
+    chown system system /sys/kernel/sound_control/mic_gain
+    restorecon_recursive /sys/kernel/sound_control
+
+on property:persist.sys.selinux.enforcing=1
+    write /dev/kmsg "SELinux enforcing by persist user property -> "
+    exec - root root -- /system/bin/setenforce 1
+
 service mmbn-daemon /system/bin/mmbn-daemon
     class main
     oneshot
