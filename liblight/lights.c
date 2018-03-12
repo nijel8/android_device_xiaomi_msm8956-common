@@ -18,6 +18,7 @@
 
 
 // #define LOG_NDEBUG 0
+#define LOG_TAG "lights"
 
 #include <cutils/log.h>
 
@@ -42,38 +43,38 @@ static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 static struct light_state_t g_attention;
 
+char const*const LCD_FILE
+        = "/sys/class/leds/lcd-backlight/brightness";
+
+char const*const BUTTON_FILE
+        = "/sys/class/leds/button-backlight/brightness";
+
 char const*const RED_LED_FILE
         = "/sys/class/leds/red/brightness";
-
-char const*const RED_BLINK_FILE
-    = "/sys/class/leds/red/blink";
-
-char const*const GREEN_BLINK_FILE
-    = "/sys/class/leds/green/blink";
-
-char const*const BLUE_BLINK_FILE
-    = "/sys/class/leds/blue/blink";
-
-char const*const GREEN_LED_FILE
-        = "/sys/class/leds/green/brightness";
 
 char const*const BLUE_LED_FILE
         = "/sys/class/leds/blue/brightness";
 
-char const*const LCD_FILE
-        = "/sys/class/leds/lcd-backlight/brightness";
+char const*const GREEN_LED_FILE
+        = "/sys/class/leds/green/brightness";
+
+char const*const RED_BLINK_FILE
+    = "/sys/class/leds/red/blink";
+
+char const*const BLUE_BLINK_FILE
+    = "/sys/class/leds/blue/blink";
+
+char const*const GREEN_BLINK_FILE
+    = "/sys/class/leds/green/blink";
 
 char const*const RED_BREATH_FILE
         = "/sys/class/leds/red/led_time";
 
-char const*const GREEN_BREATH_FILE
-        = "/sys/class/leds/green/led_time";
-
 char const*const BLUE_BREATH_FILE
         = "/sys/class/leds/blue/led_time";
 
-char const*const BUTTON_FILE
-        = "/sys/class/leds/button-backlight/brightness";
+char const*const GREEN_BREATH_FILE
+        = "/sys/class/leds/green/led_time";
 
 struct color {
     unsigned int r, g, b;
@@ -196,7 +197,7 @@ write_int(char const* path, int value)
         return amt == -1 ? -errno : 0;
     } else {
         if (already_warned == 0) {
-            ALOGE("write_int failed to open %s\n", path);
+            ALOGE("lights: write_int failed to open %s\n", path);
             already_warned = 1;
         }
         return -errno;
@@ -217,7 +218,7 @@ write_str(char const* path, char *value)
         return amt == -1 ? -errno : 0;
     } else {
         if (already_warned == 0) {
-            ALOGE("write_str failed to open %s\n", path);
+            ALOGE("lights: write_str failed to open %s\n", path);
             already_warned = 1;
         }
         return -errno;
@@ -251,7 +252,7 @@ nearest_color(unsigned int r, unsigned int g, unsigned int b)
 
     rgb2lab(r, g, b, &_L, &_a, &_b);
 
-    ALOGV("%s: r=%d g=%d b=%d L=%f a=%f b=%f", __func__,
+    ALOGV("lights: %s: r=%d g=%d b=%d L=%f a=%f b=%f", __func__,
             r, g, b, _L, _a, _b);
 
     for (i = 0; i < MAX_COLOR; i++) {
@@ -259,7 +260,7 @@ nearest_color(unsigned int r, unsigned int g, unsigned int b)
         a_dist = pow(_a - colors[i]._a, 2);
         b_dist = pow(_b - colors[i]._b, 2);
         total = sqrt(L_dist + a_dist + b_dist);
-        ALOGV("%s: total %f distance %f", __func__, total, distance);
+        ALOGV("lights: %s: total %f distance %f", __func__, total, distance);
         if (total < distance) {
             nearest = &colors[i];
             distance = total;
@@ -321,7 +322,7 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     colorRGB = state->color;
 
-    ALOGD("set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
+    ALOGD("lights: set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
             state->flashMode, colorRGB, onMS, offMS);
 
     red = (colorRGB >> 16) & 0xFF;
@@ -434,11 +435,16 @@ set_light_buttons(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
+    int brightness = rgb_to_brightness(state);
     if(!dev) {
         return -1;
     }
+    
+    /* Mi Max max button brightness is 40 so let's write correct brightness */
+    brightness /= 6.375;
+    
     pthread_mutex_lock(&g_lock);
-    err = write_int(BUTTON_FILE, state->color & 0xFF);
+    err = write_int(BUTTON_FILE, round(brightness));
     pthread_mutex_unlock(&g_lock);
     return err;
 }
