@@ -183,7 +183,6 @@ DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
 TARGET_PROVIDES_KEYMASTER := true
 
 # Lights
-BOARD_LIGHTS_VARIANT := aw2013
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Lineage hardware
