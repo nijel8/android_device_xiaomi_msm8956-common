@@ -140,8 +140,6 @@ persist.radio.rat_on=combine
 persist.radio.sib16_support=1
 persist.radio.sw_mbn_update=0
 persist.radio.VT_HYBRID_ENABLE=1
-ro.telephony.ril_class=MiMaxRIL
-ro.telephony.MiMaxRIL.debug=0
 
 # TCP
 net.tcp.2g_init_rwnd=10
