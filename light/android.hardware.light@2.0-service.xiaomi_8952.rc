@@ -1,0 +1,24 @@
+on init
+    # LCD backlight
+    chown system system /sys/class/leds/lcd-backlight/brightness
+
+    # Button backlight
+    chown system system /sys/class/leds/button-backlight/brightness
+
+    # Notification/Battery light
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
+
+    chown system system /sys/class/leds/red/led_time
+    chown system system /sys/class/leds/green/led_time
+    chown system system /sys/class/leds/blue/led_time
+    
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/blue/blink
+
+service light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.xiaomi_8952
+    class hal
+    user system
+    group system
