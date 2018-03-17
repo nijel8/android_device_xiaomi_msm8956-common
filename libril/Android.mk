@@ -1,6 +1,6 @@
 # Copyright 2006 The Android Open Source Project
 
-ifneq ($(BOARD_PROVIDES_LIBRIL),true)
+ifeq ($(BOARD_PROVIDES_LIBRIL),true)
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
@@ -9,7 +9,7 @@ LOCAL_VENDOR_MODULE := true
 
 LOCAL_SRC_FILES:= \
     ril.cpp \
-    ril_event.cpp\
+    ril_event.cpp \
     RilSapSocket.cpp \
     ril_service.cpp \
     sap_service.cpp
@@ -38,8 +38,8 @@ ifeq ($(SIM_COUNT), 2)
 endif
 
 LOCAL_C_INCLUDES += external/nanopb-c
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/../include
-LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/../include
+LOCAL_C_INCLUDES += hardware/ril-caf/include
+LOCAL_EXPORT_C_INCLUDE_DIRS := hardware/ril-caf/include
 
 LOCAL_MODULE:= libril
 LOCAL_CLANG := true
