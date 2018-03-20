@@ -164,12 +164,6 @@ TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
 BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
-# GPS
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm8952
-USE_DEVICE_SPECIFIC_GPS := true
-TARGET_USE_LEGACY_SUPPORT := true
-TARGET_NO_RPC := true
-
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
@@ -231,7 +225,6 @@ TARGET_RIL_VARIANT := caf
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /vendor/lib64/lib-imsvt.so|/vendor/lib64/libshims_ims.so \
-    /vendor/lib64/libizat_core.so|/vendor/lib64/libshims_get_process_name.so \
     /vendor/lib64/libril-qc-qmi-1.so|/vendor/lib64/libshims_rild_socket.so
 
 # Tap-to-Wake
